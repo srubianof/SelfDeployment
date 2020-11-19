@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eci cloud</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/cloudservice.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script  src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="app.getAllCases()">
+<div class="row" style="margin-top: 50px;margin-left:3rem; margin-right: 3rem">
+    <div class="container">
+        <h2>
+            Eci cloud
+        </h2>
+    </div>
+    <div class="container register mt-4">
+        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="general" data-toggle="tab" href="#TabGeneral" role="tab"
+                   aria-controls="home" aria-selected="true">Intro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="singleCountry" data-toggle="tab" href="#TabCountry" role="tab"
+                   aria-controls="profile" aria-selected="false">Upload container</a>
+            </li>
+        </ul>
+        <div class="tab-content p-4" id="myTabContent">
+            <div class="tab-pane fade show active" id="TabGeneral" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                    <p style="text-align: center">
+                        Depliega proyectos de JAVA en nuestra nube.
+                    </p>
+                    <img src="https://media.discordapp.net/attachments/412426946140438539/779088911401353246/unknown.png">
+                </div>
+            </div>
+            <div class="tab-pane fade in active" id="TabCountry" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="container">
+                    <div class="row mb-3 justify-content-center">
+                        <div class="col-sm">
+                            <form>
+                                <div class="form-group">
+                                    <label for="github">Github repository</label>
+                                    <input type="text" class="form-control" id="github" aria-describedby="githubHelp" placeholder="Enter repository">
+                                    <small id="githubHelp" class="form-text text-muted">Repository link</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="appname">App name</label>
+                                    <input type="text" class="form-control" id="appname" placeholder="App name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mainclass">Main class</label>
+                                    <input type="text" class="form-control" id="mainclass" aria-describedby="mainclassHelp" placeholder="Enter main class">
+                                    <small id="mainclassHelp" class="form-text text-muted">Java main class name(example : com.google.mainclass)</small>
+                                </div>
+                                <button type="button"  onclick="app.deploy(github.value,appname.value,mainclass.value)" class="btn btn-primary">Deploy</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <table id="containers" class="table table-bordered table-hover">
+                            <thead class="text-center">
+                            <tr>
+                                <th>App name</th>
+                                <th>Create at</th>
+                                <th>Link aws</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
