@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+      
+
+  pruebita:
+    build:
+      context: ./Apps/pruebita
+      args:
+        - GIT_REPO=https://github.com/jose-gome/AREP-2020-1-Calculadora-estadistica
+        - GIT_REPO_LAST_PATH=/AREP-2020-1-Calculadora-estadistica
+        - MAIN_CLASS=edu.escuelaing.arem.ASE.app.AppWeb
+      dockerfile: Dockerfile
+    ports:
+      - "8081:6000"
+      
