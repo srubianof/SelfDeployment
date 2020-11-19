@@ -1,4 +1,4 @@
-package edu.eci.arep.mypaas;
+package edu.eci.selfdeployment.mypaas;
 
 import java.util.LinkedList;
 import java.util.Queue;

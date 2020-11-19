@@ -1,4 +1,4 @@
-package edu.eci.arep.mypaas;
+package edu.eci.selfdeployment.mypaas;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
