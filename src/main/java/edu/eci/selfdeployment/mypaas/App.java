@@ -7,8 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static spark.Spark.port;
-import static spark.Spark.post;
+import static spark.Spark.*;
 
 public class App {
     private List<?> apps = new ArrayList<>();
@@ -16,6 +15,12 @@ public class App {
     public static void main(String[] args) {
         PortQueue ports = new PortQueue();
         port(getPort());
+        staticFileLocation("/");
+        get("/", (req, res) -> {
+            res.redirect("/index.html");
+            res.status(200);
+            return null;
+        });
         post("/newApp", (req, res) -> {
             Gson gson = new Gson();
             Application newApp = gson.fromJson(req.body(), Application.class);
