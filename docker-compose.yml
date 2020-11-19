@@ -4,3 +4,36 @@ services:
 
 
       
+  prueba:
+    build:
+      context: ./Apps/prueba
+      args:
+        - GIT_REPO=https://github.com/jose-gome/AREP-2020-1-Calculadora-estadistica.git
+        - GIT_REPO_LAST_PATH=/AREP-2020-1-Calculadora-estadistica.git
+        - MAIN_CLASS=edu.escuelaing.arem.ASE.app.AppWeb
+      dockerfile: Dockerfile
+    ports:
+      - "8080:6000"
+      
+  prueba:
+    build:
+      context: ./Apps/prueba
+      args:
+        - GIT_REPO=https://github.com/jose-gome/AREP-2020-1-Calculadora-estadistica.git
+        - GIT_REPO_LAST_PATH=/AREP-2020-1-Calculadora-estadistica.git
+        - MAIN_CLASS=edu.escuelaing.arem.ASE.app.AppWeb
+      dockerfile: Dockerfile
+    ports:
+      - "8080:6000"
+      
+  prueba:
+    build:
+      context: ./Apps/prueba
+      args:
+        - GIT_REPO=https://github.com/jose-gome/AREP-2020-1-Calculadora-estadistica.git
+        - GIT_REPO_LAST_PATH=/AREP-2020-1-Calculadora-estadistica.git
+        - MAIN_CLASS=edu.escuelaing.arem.ASE.app.AppWeb
+      dockerfile: Dockerfile
+    ports:
+      - "8080:6000"
+      

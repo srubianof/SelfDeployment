@@ -10,7 +10,7 @@ import java.util.List;
 import static spark.Spark.*;
 
 public class App {
-    private List<?> apps = new ArrayList<>();
+    private static List<Application> apps = new ArrayList<>();
 
     public static void main(String[] args) {
         PortQueue ports = new PortQueue();
@@ -28,12 +28,16 @@ public class App {
             runConfigurations(newApp, ports);
             return newApp;
         });
+        get("/apps", ((request, response) -> {
+            return apps;
+        }));
     }
 
     private static void runConfigurations(Application app, PortQueue ports) {
         String port = ports.getPorts().poll();
         try {
             app.deployApp(port);
+            apps.add(app);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
