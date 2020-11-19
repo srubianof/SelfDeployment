@@ -1,8 +1,7 @@
-package edu.eci.arep.mypaas;
+package edu.eci.selfdeployment.mypaas;
 
 import com.google.gson.Gson;
-import edu.eci.arep.mypaas.model.Application;
-import edu.eci.arep.mypaas.utils.UpdateFile;
+import edu.eci.selfdeployment.mypaas.model.Application;
 
 import java.io.IOException;
 import java.util.ArrayList;

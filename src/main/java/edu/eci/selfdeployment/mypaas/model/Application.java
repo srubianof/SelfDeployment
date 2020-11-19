@@ -1,7 +1,7 @@
-package edu.eci.arep.mypaas.model;
+package edu.eci.selfdeployment.mypaas.model;
 
-import edu.eci.arep.mypaas.utils.CopyFiles;
-import edu.eci.arep.mypaas.utils.UpdateFile;
+import edu.eci.selfdeployment.mypaas.utils.CopyFiles;
+import edu.eci.selfdeployment.mypaas.utils.UpdateFile;
 
 import java.io.BufferedReader;
 import java.io.IOException;
