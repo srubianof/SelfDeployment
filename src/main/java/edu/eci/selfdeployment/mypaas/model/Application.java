@@ -26,7 +26,7 @@ public class Application {
 
     public void deployApp(String port) throws IOException, InterruptedException {
         setPort(port);
-        setUrl("http://54.209.201.116:"+port);
+        setUrl("http://3.235.174.21:"+port);
         System.out.println(port + "aaaaa");
         UpdateFile.addServices(getGitRepo(), getMainClass(), getAppName(), getPort());
         createDirectory();
