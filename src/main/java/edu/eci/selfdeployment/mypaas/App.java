@@ -29,7 +29,7 @@ public class App {
             return newApp;
         });
         get("/apps", ((request, response) -> {
-            return apps;
+            return new Gson().toJson(apps);
         }));
     }
 
@@ -37,6 +37,7 @@ public class App {
         String port = ports.getPorts().poll();
         try {
             app.deployApp(port);
+            app.setPort(port);
             apps.add(app);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
