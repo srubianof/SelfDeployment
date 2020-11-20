@@ -1,3 +1,25 @@
 version: '2'
 
 services:
+  asfdasdf:
+    build:
+      context: ./Apps/asfdasdf
+      args:
+        - GIT_REPO=https://github.com/jose-gome/AREP-2020-1-Calculadora-estadistica
+        - GIT_REPO_LAST_PATH=/AREP-2020-1-Calculadora-estadistica
+        - MAIN_CLASS=sdfsadfas
+      dockerfile: Dockerfile
+    ports:
+      - "8080:6000"
+      
+  sdfasdf:
+    build:
+      context: ./Apps/sdfasdf
+      args:
+        - GIT_REPO=https://github.com/jose-gome/AREP-2020-1-Calculadora-estadistica
+        - GIT_REPO_LAST_PATH=/AREP-2020-1-Calculadora-estadistica
+        - MAIN_CLASS=1234123
+      dockerfile: Dockerfile
+    ports:
+      - "8080:6000"
+      

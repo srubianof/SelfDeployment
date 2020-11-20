@@ -16,7 +16,7 @@ const app = (() => {
                 `<tr> 
                   <td>${AppName}</td>
                   <td>${gitRepo}</td>
-                  <td><a href="${url}"></a>${url}</td>
+                  <td><a href="${url}">${url}</a></td>
                 </tr>`
             );
         })
