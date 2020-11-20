@@ -1,72 +1,36 @@
 const app = (() =>{
     let object = {}
     let containers = [];
-    const mapCasesToObjects = (cases) =>{
-        let table = $("#tabla > tbody");
+
+    const addToTable = (apps) => {
+        let table = $("#containers > tbody");
         table.empty();
-        receivedCases = cases.data.map(({country,deaths,confirmed,recovered}) =>({
-            country:country,
-            deaths:deaths,
-            confirmed:confirmed,
-            recovered: recovered
+        containers = apps.data.map(({AppName,gitRepo,url}) =>({
+            AppName:AppName,
+            gitRepo:gitRepo,
+            url:url,
         }))
-        receivedCases.forEach(({country, deaths, confirmed,recovered}) => {
-            table.append(
-                `<tr data-toggle=tab href=#TabCountry onclick=app.getStatsCountry('${country}','${deaths}','${confirmed}','${recovered}') style="cursor: pointer"> 
-                      <td>${country}</td>
-                      <td>${deaths}</td>
-                      <td>${confirmed}</td>
-                      <td>${recovered}</td>
-                </tr>`
-            );
-        })
-    }
-    const mapCasesById = (cases) =>{
-        let table = $("#casesByCountry > tbody");
-        console.log(cases);
-        table.empty();
-        casesByCountry = cases.data.map(({province,deaths,confirmed,recovered,localization}) =>({
-            province: province,
-            deaths:deaths,
-            confirmed:confirmed,
-            recovered:recovered,
-            localization:localization
-        }))
-        casesByCountry.forEach(({province,deaths,confirmed,recovered}) => {
+        containers.forEach(({AppName,gitRepo,url}) => {
             table.append(
                 `<tr> 
-                      <td>${province}</td>
-                      <td>${deaths}</td>
-                      <td>${confirmed}</td>
-                      <td>${recovered}</td>
+                  <td>${AppName}</td>
+                  <td>${gitRepo}</td>
+                  <td><a href="${url}"></a>${url}</td>
                 </tr>`
             );
         })
-        initMap(casesByCountry);
-    }
-    const getAllCases = () =>{
-        coronaservice.getAllCases(mapCasesToObjects);
-    }
-    const fillTableStats = (country,deaths,confirmed,recovered) =>{
-        let table = $("#case > tbody");
-        table.empty()
-        table.append(
-            `<tr> <td>Country</td> <td>${country}</td> </tr>
-             <tr> <td>Deaths</td> <td>${deaths}</td> </tr>
-             <tr> <td>Infected</td><td>${confirmed}</td></tr>
-             <tr> <td>Recovered</td> <td>${recovered}</td></tr>  
-            `
-        );
-    }
-    const getStatsByCountry = (country,deaths,confirmed,recovered) =>{
-        fillTableStats(country,deaths,confirmed,recovered);
-        coronaservice.getCasesByCountry(country,mapCasesById);
     }
     const mapContainers = () =>{
-
+        cloudservice.getApps(object,addToTable);
+    }
+    const sanitizeInputs = (string) => {
+        string = string.replace(/[^a-zA-Z 0-9,]/gim, "");
     }
     const deploy = (github,appname,mainclass) =>{
         const promise = new Promise((resolve) =>{
+            sanitizeInputs(github);
+            sanitizeInputs(appname);
+            sanitizeInputs(mainclass);
             object = {"AppName":appname,"gitRepo":github,"mainClass":mainclass};
             resolve();
         })
