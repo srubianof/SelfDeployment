@@ -30,7 +30,6 @@ public class Application {
         System.out.println(port + "aaaaa");
         UpdateFile.addServices(getGitRepo(), getMainClass(), getAppName(), getPort());
         createDirectory();
-        Thread.sleep(5000);
         execDockerCompose();
     }
 
